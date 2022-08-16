@@ -6,14 +6,14 @@ const React = require('react');
 
 const express = require('express');
 const app = express()
-const { PORT } = process.env;
+const { PORT, SESSION_SECRET } = process.env;
 
 const logger = require('morgan');
 const path = require('path');
 
 //!!!!routes
 const loginRouter = require('./src/routes/user')
-
+const MainRouter = require('./src/routes/drug')
 
 
 //!!!!!!!middlewares
@@ -29,7 +29,7 @@ app.use(express.json());
 
 //!!!!!!!!!!!!!! app.use()
 app.use('/', loginRouter);
-
+app.use('/', MainRouter)
 
 
 
