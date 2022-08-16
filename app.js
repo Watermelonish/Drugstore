@@ -4,18 +4,39 @@ require("@babel/register");
 const ReactDOMServer = require("react-dom/server");
 const React = require("react");
 
-const express = require("express");
-
-
-
-const app = express();
+const express = require('express');
+const app = express()
 const { PORT, SESSION_SECRET } = process.env;
+
+
+
+//!!!!routes
+const loginRouter = require('./src/routes/user')
+const MainRouter = require('./src/routes/drug')
+
 
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
+
+//!!!!!!!middlewares
+app.use(logger('dev'));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+
+//!!cookie session прописать
+
+
+
+//!!!!!!!!!!!!!! app.use()
+app.use('/', loginRouter);
+app.use('/', MainRouter)
+
 const logger = require("morgan");
 const path = require("path");
+
 
 //! !!!routes
 const registerRouter = require("./src/routes/registerRouter");
