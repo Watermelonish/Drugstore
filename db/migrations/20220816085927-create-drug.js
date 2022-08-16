@@ -14,7 +14,7 @@ module.exports = {
       price: {
         type: Sequelize.INTEGER
       },
-      dicountPrice: {
+      discountPrice: {
         type: Sequelize.INTEGER
       },
       discount: {
