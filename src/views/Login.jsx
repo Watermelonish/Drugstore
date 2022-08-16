@@ -1,5 +1,7 @@
 const React = require('react');
 const Layout = require('./Layout');
+const Home = require('./Home');
+
 
 module.exports = function Login({  }) {
   return (
@@ -22,14 +24,19 @@ module.exports = function Login({  }) {
       <div className="slider-tab" />
     </div>
     <div className="form-inner">
-      <form action="#" className="login">
+      <form action="/login" method="POST" className="login">
         <div className="field">
-          <input type="text" placeholder="Email Address" required />
+          <input name="mail" type="text" placeholder="Email Address" required />
         </div>
         <div className="field">
-          <input type="password" placeholder="Password" required />
+          <input name="login" type="text" placeholder="Login" required />
+        </div>
+
+        <div className="field">
+          <input name="password" type="password" placeholder="Password" required />
         </div>
         <div className="pass-link">
+          
           <a href="#">Forgot password?</a>
         </div>
         <div className="field btn">
@@ -37,13 +44,14 @@ module.exports = function Login({  }) {
           <input type="submit" defaultValue="Login" />
         </div>
         <div className="signup-link">
-          Not a member? <a href>Signup now</a>
+          Not a member? <a href ="#">Signup now</a>  
         </div>
       </form>
       <form action="#" className="signup">
         <div className="field">
-          <input type="text" placeholder="Email Address" required />
+          <input name="mail" type="text" placeholder="Email Address" required />
         </div>
+
         <div className="field">
           <input type="password" placeholder="Password" required />
         </div>
