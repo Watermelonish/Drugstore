@@ -11,7 +11,7 @@ module.exports = function Layout({ children, newUser }) {
 
         {/* <script defer src="/js/application.js" /> */}
 
-        <title>Broccoli Blog</title>
+        <title>pharmacy</title>
       </head>
 
       <body>
