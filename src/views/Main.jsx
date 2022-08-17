@@ -5,16 +5,18 @@ module.exports = function Main({ drugs }) {
    drugs.map((drug) => console.log(drug.dicountPrice, 'AAAAAAAAAAAAAA'))
   return (
     <Layout>
+      <script defer src="/js/mainShop.js" />
+
       <div className = "main d-flex flex-column justify-content-start">
 <div>
-  <div className="form-check">
-    <input className="form-check-input" type="checkbox" defaultValue id="flexCheckDefault" />
+  <div className="form-check ">
+    <input className="form-check-input" type="checkbox" defaultValue id="flexCheckPrice" />
     <label className="form-check-label" htmlFor="flexCheckDefault">
       Сначала дешевые
     </label>
   </div>
   <div className="form-check">
-    <input className="form-check-input" type="checkbox" defaultValue id="flexCheckChecked" defaultChecked />
+    <input className="form-check-input" type="checkbox" defaultValue id="flexCheckAvailability" defaultChecked />
     <label className="form-check-label" htmlFor="flexCheckChecked">
       Только товары в наличии
     </label>
@@ -61,7 +63,7 @@ module.exports = function Main({ drugs }) {
 
         </div>
         <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-               <button type="button" class="btn ">купить</button>
+               <button type="button" class="btn btn-success" data-id = {`${drug.id}`}>купить</button>
          </div>
       </div>
       

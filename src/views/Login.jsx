@@ -5,6 +5,8 @@ const Layout = require('./Layout');
 module.exports = function Login({note}) {
   return (
        <Layout>
+       
+          
       <h2>Вход</h2>
       <form action="/login" method="POST">
         <div className="mb-3">
@@ -34,6 +36,7 @@ module.exports = function Login({note}) {
         </div>
         <button type="submit" className="btn btn-primary register">Регистрация</button>
       </form>
+ 
     </Layout>
   );
 };
