@@ -16,6 +16,7 @@ const path = require("path");
 //!!!!routes
 const loginRouter = require('./src/routes/user')
 const MainRouter = require('./src/routes/drug')
+const logoutRouter = require('./src/routes/logout')
 
 
 const FileStore = require('session-file-store')(session);
@@ -45,7 +46,7 @@ app.use(session(sessionConfig));
 //!!!!!!!!!!!!!! app.use()
 app.use('/', loginRouter);
 app.use('/', MainRouter)
-
+app.use('/', logoutRouter)
 
 
 
@@ -65,7 +66,6 @@ app.use(express.json());
 
 
 
-//app.use("/", homeRouter);
 
 app.use("/", registerRouter);
 
