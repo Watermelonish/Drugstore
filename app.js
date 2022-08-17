@@ -66,28 +66,13 @@ app.use(express.json());
 
 
 //app.use("/", homeRouter);
-app.use("/login", registerRouter);
+
+app.use("/", registerRouter);
 
 
-// * 19 Ручка для выхода пользователя с уничтожением куки и файла сессии
-// app.get("/logout", async (req, res) => {
-//   try {
-//     if (req.session.newUser) {
-//       // * 20 убийство куки если она есть и сессии тоже
-//       // * аналогия с req.session.save
-//       req.session.destroy(() => {
-//         res.clearCookie("BlogCookie");
-//         res.redirect("/");
-//       });
-//     } else {
-//       // ! Защита ручки от вхождения в неё
-//       // * 21 см в loginControllers
-//       res.redirect("/");
-//     }
-//   } catch (error) {
-//     res.send(`Error ------> ${error}`);
-//   }
-// });
+
+
+
 
 app.listen(PORT, () => {
   console.log(`server started PORT: ${PORT}`);
