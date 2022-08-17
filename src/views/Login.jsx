@@ -2,7 +2,7 @@ const React = require('react');
 
 const Layout = require('./Layout');
 
-module.exports = function Login() {
+module.exports = function Login({note}) {
   return (
        <Layout>
       <h2>Вход</h2>
@@ -15,6 +15,7 @@ module.exports = function Login() {
           <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
           <input name="password" type="password" className="form-control" id="exampleInputPassword1" />
         </div>
+        <p>{note}</p>
         <button type="submit" className="btn btn-primary">Вход</button>
         </form>
            <h2>Регистрация</h2>

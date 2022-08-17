@@ -13,18 +13,19 @@ const { User } = require("../../db/models/");
 router.get("/login", (req, res) => {
   renderTemplate(Login, {}, res);
 }).post('/login', async (req, res) => {
-  const {login, password} = req.body;
-  console.log(login, password)
+  const {mail, password} = req.body;
+  console.log(mail, password)
   try{
-    const user = await User.findOne({where:{ login }});
+    const user = await User.findOne({where:{ mail }});
     const passCheck = await bcrypt.compare(password, user.password);
    if (passCheck){
-     req.session.newUser = user.login;
+     req.session.newUser = user.mail;
      req.session.save(() => {
-       res.redirect('/');
+       res.redirect('/main');
      });
    }else{
-   res.redirect('/login')
+    const note = "Такой пользователь не найден"
+    renderTemplate(Login, {note}, res);
   }
  }catch(error){
    const message = "Пользователь не найден"
@@ -34,10 +35,8 @@ router.get("/login", (req, res) => {
 })
 
 
-// создание нового пользователя
-router.get("/user", (req, res) => {
-  renderTemplate(User, {}, res);
-}).post("/user", async (req, res) => {
+//userPages
+router.post("/user", async (req, res) => {
 
   const { mail, login, password } = req.body
   try {
