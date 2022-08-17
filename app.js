@@ -5,6 +5,8 @@ const ReactDOMServer = require("react-dom/server");
 const React = require("react");
 
 const express = require('express');
+const session = require('express-session');
+
 const app = express()
 const { PORT, SESSION_SECRET } = process.env;
 const logger = require("morgan");
@@ -16,7 +18,6 @@ const loginRouter = require('./src/routes/user')
 const MainRouter = require('./src/routes/drug')
 
 
-const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
 
@@ -28,11 +29,21 @@ app.use(express.json());
 
 
 //!!cookie session прописать
+const sessionConfig = {
+  name: 'newUser', // * Название куки
+  store: new FileStore(), // * подключение стора (БД для куки) для хранения
+  secret: SESSION_SECRET ?? 'shamil', // * ключ для шифрования куки
+  resave: false, // * если true, пересохраняет сессию, даже если она не поменялась
+  saveUninitialized: false, // * Если false, куки появляются только при установке req.session
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 10, // * время жизни в ms (10 дней)
+    httpOnly: true, // * куки только по http
+  },
+};
 
-
-
+app.use(session(sessionConfig));
 //!!!!!!!!!!!!!! app.use()
-//app.use('/', loginRouter);
+app.use('/', loginRouter);
 app.use('/', MainRouter)
 
 
@@ -52,23 +63,15 @@ app.use(express.json());
 
 //! !!!!!!!!!!!!! app.use()
 
-const sessionConfig = {
-  name: "UserRegister", // * Название куки
-  store: new FileStore(), // * подключение стора (БД для куки) для хранения
-  secret: SESSION_SECRET ?? "SecterPass", // * ключ для шифрования куки
-  resave: false, // * если true, пересохраняет сессию, даже если она не поменялась
-  saveUninitialized: false, // * Если false, куки появляются только при установке req.session
-  cookie: {
-    maxAge: 1000 * 60 * 60 * 24 * 10, // * время жизни в ms
-    httpOnly: true, // * куки только по http
-  },
-};
 
-// * 7 подключение мидлвара для куки
-app.use(session(sessionConfig));
 
 //app.use("/", homeRouter);
+
 app.use("/", registerRouter);
+
+
+
+
 
 
 app.listen(PORT, () => {
