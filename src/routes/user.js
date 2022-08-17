@@ -68,6 +68,48 @@ router.post("/user", async (req, res) => {
   } catch(err){
     console.log(err)
   }
+}).delete("/user", async (req, res) => {
+  const newUser = req.session?.newUser;
+  try{
+    const theUser = await User.destroy({where:{mail:newUser}})
+    
+    res.json({delete:'200'})
+  } catch(err){
+    console.log(err)
+  }
+}).put("/user", async (req, res)=> {
+  const newUser = req.session?.newUser;
+  const {newMail, newLogin, newPassword, password} = req.body;
+  console.log(newPassword)
+  try{
+
+    const theUser = await User.findOne({where:{mail:newUser}})
+    const passCheck = await bcrypt.compare(password, theUser.password);
+    if(passCheck){
+      if (newMail){
+      await theUser.update({mail:newMail})
+      req.session.newUser = newMail;
+      req.session.save(() => {
+      res.json({ isChangeSuccessful: true });
+      });
+    }
+      if (newLogin){
+      await theUser.update({ login: newLogin })
+      res.json({ isChangeSuccessful: true });
+    }
+      if (newPassword){
+      const hash = await bcrypt.hash(newPassword, 10);
+      await theUser.update({password:hash})
+      res.json({ isChangeSuccessful: true });
+
+    }
+  }else{
+    res.json({ wrongPassword: true });
+  }
+  
+  }catch(error){
+    console.log(error)
+  }
 })
 
 

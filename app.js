@@ -17,7 +17,7 @@ const path = require("path");
 const loginRouter = require('./src/routes/user')
 const MainRouter = require('./src/routes/drug')
 const logoutRouter = require('./src/routes/logout')
-
+const setWidth = require('./src/routes/setWidth')
 
 const FileStore = require('session-file-store')(session);
 
@@ -47,7 +47,7 @@ app.use(session(sessionConfig));
 app.use('/', loginRouter);
 app.use('/', MainRouter)
 app.use('/', logoutRouter)
-
+app.use('/', setWidth)
 
 
 //! !!!routes

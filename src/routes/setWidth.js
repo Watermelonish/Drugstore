@@ -1,17 +1,11 @@
-
-const {User} = require('../../db/models')
 const router = require('express').Router();
 
-const Main = require('../views/Main');
-
-
-
-
-router.get("/logout", async (req, res) => {
+router.post("/setWidth", async (req, res) => {
    try {
-     if (req.session.newUser) {
-         req.session.destroy(() => {
-         res.clearCookie("newUser");
+      console.log(req.body.width)
+     if (!req.session.width) {
+         req.session.create(() => {
+         res.clearCookie("width");
          res.redirect("/main");
        });
      } else {
@@ -23,5 +17,4 @@ router.get("/logout", async (req, res) => {
    }
  });
 
-   
  module.exports = router;
