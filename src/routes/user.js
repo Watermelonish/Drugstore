@@ -71,21 +71,7 @@ router.post("/user", async (req, res) => {
 })
 
 
-// * 19 Ручка для выхода пользователя с уничтожением куки и файла сессии
-// app.get("/logout", async (req, res) => {
-//   try {
-//     if (req.session.newUser) {
-//         req.session.destroy(() => {
-//         res.clearCookie("Cookie");
-//         res.redirect("/");
-//       });
-//     } else {
-//       // ! Защита ручки от вхождения в неё
-//       res.redirect("/");
-//     }
-//   } catch (error) {
-//     res.send(`Error ------> ${error}`);
-//   }
-// });
+
+
 
 module.exports = router;
