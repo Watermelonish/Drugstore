@@ -18,7 +18,7 @@ module.exports = function Login() {
         <button type="submit" className="btn btn-primary">Вход</button>
         </form>
            <h2>Регистрация</h2>
-      <form action="/login" method="POST">
+      <form action="/user" method="POST">
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">Username</label>
           <input name="login" type="username" className="form-control" id="exampleInputUserName" />
