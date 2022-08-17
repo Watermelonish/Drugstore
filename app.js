@@ -7,7 +7,8 @@ const React = require("react");
 const express = require('express');
 const app = express()
 const { PORT, SESSION_SECRET } = process.env;
-
+const logger = require("morgan");
+const path = require("path");
 
 
 //!!!!routes
@@ -31,16 +32,14 @@ app.use(express.json());
 
 
 //!!!!!!!!!!!!!! app.use()
-app.use('/', loginRouter);
+//app.use('/', loginRouter);
 app.use('/', MainRouter)
 
-const logger = require("morgan");
-const path = require("path");
+
 
 
 //! !!!routes
-const registerRouter = require("./src/routes/registerRouter");
-const homeRouter = require("./src/routes/homeRouter");
+const registerRouter = require("./src/routes/user");
 
 
 //! !!!!!!middlewares
@@ -68,9 +67,9 @@ const sessionConfig = {
 // * 7 подключение мидлвара для куки
 app.use(session(sessionConfig));
 
-app.use("/", homeRouter);
-
+//app.use("/", homeRouter);
 app.use("/login", registerRouter);
+
 
 // * 19 Ручка для выхода пользователя с уничтожением куки и файла сессии
 app.get("/logout", async (req, res) => {
