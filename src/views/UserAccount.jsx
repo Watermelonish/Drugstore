@@ -26,6 +26,9 @@ module.exports = function Main({ theUser }) {
   <button type="button" class="btn btn-outline-primary">Средняя</button>
   <button type="button" class="btn btn-outline-primary">Правая</button>
 </div>
+<div>
+<button type="button" class="btn btn-outline-primary">Удалить профиль</button>
+</div>
 </div>
     </Layout>
   );

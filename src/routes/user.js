@@ -14,7 +14,7 @@ router.get("/login", (req, res) => {
   renderTemplate(Login, {}, res);
 }).post('/login', async (req, res) => {
   const {mail, password} = req.body;
-  console.log(mail, password)
+  //console.log(mail, password)
   try{
     const user = await User.findOne({where:{ mail }});
     const passCheck = await bcrypt.compare(password, user.password);
@@ -42,7 +42,7 @@ router.post("/user", async (req, res) => {
   try {
     const hash = await bcrypt.hash(password, 10);
     let searched = await User.findOne({where: {mail}, raw: true});
-    console.log(searched)
+    //console.log(searched)
     if (searched) {
       return res.send('Пользователь уже зарегистрирован');
           } else {
@@ -60,13 +60,22 @@ router.post("/user", async (req, res) => {
   }
 }).get("/user", async (req, res) => {
   const newUser = req.session?.newUser;
-  console.log(newUser)
+  //console.log(newUser)
   try{
     const theUser = await User.findOne({where:{mail:newUser}, raw: true})
     renderTemplate(UserAccount, {theUser}, res);
 
   } catch(err){
     console.log(err)
+  }
+}).delete('/deletePost', async (req, res) => {
+  try {
+    const { id } = req.body
+    console.log('ppppp--->', req.body);
+    await Task.destroy({where: { id }})
+    res.sendStatus(200)
+  } catch (error) {
+    res.send(`Error ------> ${error}`);
   }
 })
 
