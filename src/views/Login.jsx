@@ -1,72 +1,38 @@
 const React = require('react');
+
 const Layout = require('./Layout');
-const Home = require('./Home');
 
-
-module.exports = function Login({  }) {
+module.exports = function Login() {
   return (
-    <Layout>
-<div className="wrapper">
-  <div className="title-text">
-    <div className="title login">
-      Login Form
-    </div>
-    <div className="title signup">
-      Signup Form
-    </div>
-  </div>
-  <div className="form-container">
-    <div className="slide-controls">
-      <input type="radio" name="slide" id="login" defaultChecked />
-      <input type="radio" name="slide" id="signup" />
-      <label htmlFor="login" className="slide login">Login</label>
-      <label htmlFor="signup" className="slide signup">Signup</label>
-      <div className="slider-tab" />
-    </div>
-    <div className="form-inner">
-      <form action="/login" method="POST" className="login">
-        <div className="field">
-          <input name="mail" type="text" placeholder="Email Address" required />
+       <Layout>
+      <h2>Вход</h2>
+      <form action="/login" method="POST">
+        <div className="mb-3">
+          <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
+          <input name="mail" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
         </div>
-        <div className="field">
-          <input name="login" type="text" placeholder="Login" required />
+        <div className="mb-3">
+          <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
+          <input name="password" type="password" className="form-control" id="exampleInputPassword1" />
         </div>
-
-        <div className="field">
-          <input name="password" type="password" placeholder="Password" required />
+        <button type="submit" className="btn btn-primary">Вход</button>
+        </form>
+           <h2>Регистрация</h2>
+      <form action="/login" method="POST">
+        <div className="mb-3">
+          <label htmlFor="exampleInputEmail1" className="form-label">Username</label>
+          <input name="login" type="username" className="form-control" id="exampleInputUserName" />
         </div>
-        <div className="pass-link">
-          
-          <a href="#">Forgot password?</a>
+        <div className="mb-3">
+          <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
+          <input name="mail" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
         </div>
-        <div className="field btn">
-          <div className="btn-layer" />
-          <input type="submit" defaultValue="Login" />
+        <div className="mb-3">
+          <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
+          <input name="password" type="password" className="form-control" id="exampleInputPassword1" />
         </div>
-        <div className="signup-link">
-          Not a member? <a href ="#">Signup now</a>  
-        </div>
+        <button type="submit" className="btn btn-primary register">Регистрация</button>
       </form>
-      <form action="#" className="signup">
-        <div className="field">
-          <input name="mail" type="text" placeholder="Email Address" required />
-        </div>
-
-        <div className="field">
-          <input type="password" placeholder="Password" required />
-        </div>
-        <div className="field">
-          <input type="password" placeholder="Confirm password" required />
-        </div>
-        <div className="field btn">
-          <div className="btn-layer" />
-          <input type="submit" defaultValue="Signup" />
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
     </Layout>
   );
 };

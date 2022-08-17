@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
 
 router.post("/", async (req, res) => {
   const { mail, login, password } = req.body
-  // try {
+  try {
     const hash = await bcrypt.hash(password, 10);
     let searched = await User.findOne({where: {login: login}, raw: true});
     if (searched) {
@@ -27,12 +27,10 @@ router.post("/", async (req, res) => {
         res.redirect('/'); // проверить после создания /user
       });
 
-          }
-          
-          
-  // } catch (error) {
-  //   res.send(`Error ------> ${error}`);
-  // }
+          }     
+  } catch (error) {
+    res.send(`Error ------> ${error}`);
+  }
 });
 
 module.exports = router;

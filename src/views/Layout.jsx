@@ -6,8 +6,12 @@ module.exports = function Layout({ children, newUser }) {
 
       <head>
       <meta charSet="UTF-8" />
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossOrigin="anonymous"></link>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossOrigin="anonymous"></script>
+      <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+          crossOrigin="anonymous"
+        />
         <link rel="stylesheet" href="/css/application.css" />
 
         {/* <script defer src="/js/application.js" /> */}
@@ -16,6 +20,7 @@ module.exports = function Layout({ children, newUser }) {
       </head>
 
       <body>
+        
          <></>
         {/* <header role="banner" className="mar-t-5 pad-t-2 pad-b-4 pad-s-1 wrap-float bg-white">
           <div className="max-w-700 center wrap-float">
@@ -49,7 +54,12 @@ module.exports = function Layout({ children, newUser }) {
         </header> */}
 
             {children}
-
+            <script
+              defer
+              src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+              integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+              crossOrigin="anonymous"
+            />
       </body>
 
     </html>
