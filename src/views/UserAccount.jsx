@@ -130,7 +130,7 @@ module.exports = function Main({ theUser, newUser, transactions }) {
   <div className="card w-75" key={`${drug.id}`} id = {`${drug.id}`}>
     <div className="card-body">
       <h5 className="card-title">{`${drug['Drug.name']}`}</h5>
-      <p className="card-text">{`${drug['Drug.discountPrice'] }руб.`}</p>
+      <p className="card-text">{`${drug['Drug.discountPrice'] }руб.   `}</p>
     </div>
   </div>
 
