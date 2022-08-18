@@ -63,6 +63,18 @@ router.post('/drug', async (req, res) => {
    catch(err){
       console.error(err)
    }
+}).delete('/drug', async (req, res) => {
+   const newUser = req.session?.newUser;
+   const {id} = req.body
+   const theUser = await User.findAll({where: {mail: req.session.newUser}, include: Drug, raw:true})
+   const UserDrugToDelete = await userDrug.findOne({item_id:id})
+   if (UserDrugToDelete){
+      await UserDrugToDelete.destroy()
+      message = {destroyed:true}
+      res.json(message)
+   }
+   
+   
 })
   
   

@@ -3,7 +3,10 @@ const React = require('react');
 const Layout = require('./Layout');
 
 module.exports = function Login({theUser, newUser}) {
-   // console.log(basketDrugs)
+  const pricesArr = theUser.map((a)=> a['Drugs.discountPrice'])
+  const sum = pricesArr.reduce(function(a, b) {
+     return a + b;
+     }, 0)
   return (
        <Layout newUser = {newUser}>
        
@@ -20,10 +23,16 @@ module.exports = function Login({theUser, newUser}) {
     </div>
   </div>
 
+      
+      )}
 
-         )}
       </div>
- 
+    <div className = "basketSum">
+      <h2>Итого к оплате:</h2>
+      <p>{`${
+       sum
+      }`} руб.</p>
+    </div>
     </Layout>
   );
 };
