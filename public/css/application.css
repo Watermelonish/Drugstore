@@ -31,13 +31,54 @@ div.collapseLogin > div > p > button {
 .collapsePassword > div > p > button {
   width:200px;
 }
-/* .deleteModal {
-  display: flex;
-  position: relative;
-  justify-content:center;
-} */
+
+
 button.btn-danger {
   width:200px;
+}
+
+
+body > form:nth-child(3) > div:nth-child(1) > input:nth-child(2) {
+  width: 300px;
+}
+body > form:nth-child(3) > div:nth-child(1) {
+  margin-left: 40%;
+}
+
+body > form:nth-child(3) > div:nth-child(2) {
+  margin-left: 40%;
+}
+body > form:nth-child(3) > div:nth-child(2) > input:nth-child(2) {
+  width: 300px;
+}
+body > form:nth-child(3) > button:nth-child(4) {
+  margin-left: 48%;
+}
+
+/* Registration */
+body > form:nth-child(5) > div:nth-child(1) {
+  margin-left: 40%;
+}
+#exampleInputUserName {
+  width: 300px;
+}
+
+body > form:nth-child(5) > div:nth-child(2) {
+  margin-left: 40%;
+}
+body > form:nth-child(5) > div:nth-child(2) > input:nth-child(2) {
+  width: 300px;
+}
+
+div.mb-3:nth-child(3) {
+  margin-left: 40%;
+}
+div.mb-3:nth-child(3) > input:nth-child(2) {
+  width: 300px;
+}
+.register {
+  margin-left: 46%;
+
 }
 
 @media (max-width: 767px) {
@@ -63,5 +104,29 @@ button.btn-danger {
   }
   .changePasswordBtn > input {
     width: 130px;
+  }
+
+  body > form:nth-child(3) > div:nth-child(1) {
+    margin-left: 23%;
+  }
+  body > form:nth-child(3) > div:nth-child(2) {
+    margin-left: 23%;
+  }
+  body > form:nth-child(3) > button:nth-child(4) {
+    margin-left: 47%;
+  }
+
+  body > form:nth-child(5) > div:nth-child(1) {
+    margin-left: 23%;
+  }
+  body > form:nth-child(5) > div:nth-child(2) {
+    margin-left: 23%;
+  }
+  div.mb-3:nth-child(3) {
+    margin-left: 23%; 
+  }
+
+  .register {
+    margin-left: 41%; 
   }
 }

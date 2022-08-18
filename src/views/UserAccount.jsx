@@ -24,7 +24,7 @@ module.exports = function Main({ theUser, newUser }) {
               <div className="collapseLogin">
                 <p>
                   <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    изменить логин
+                    Изменить логин
                   </button>
                 </p>
                 <div class="collapse" id="collapseExample">
@@ -48,7 +48,7 @@ module.exports = function Main({ theUser, newUser }) {
                 <div>
                   <p>
                     <button className="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMail" aria-expanded="false" aria-controls="collapseMail">
-                      изменить Email
+                      Изменить Email
                     </button>
                   </p>
                   <div className="collapse" id="collapseMail">
@@ -72,7 +72,7 @@ module.exports = function Main({ theUser, newUser }) {
                 <div>
                   <p>
                     <button className="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePassword" aria-expanded="false" aria-controls="collapsePassword">
-                      изменить пароль
+                      Изменить пароль
                     </button>
                   </p>
                   <div className="collapse" id="collapsePassword">
