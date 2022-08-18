@@ -58,7 +58,7 @@ module.exports = function Main({ drugs, newUser }) {
                     <img src={`/img/${drug.image}`} style={{ maxHeight: 200 }} className="img-fluid rounded-start" alt="{`${drug.name}`}" /><img />
                   </div>
                   <div className="col-md-4">
-                    <div>
+                    <div className='textiki'>
                       <h5 className="card-title">{`${drug.name}`}</h5>
                       <p className="card-text"><s>{`${drug.price}`}</s>           <b>{`${drug.discountPrice}`} руб.</b></p>
                       <p className="card-text"><small className="text-muted">Осталось {`${drug.quantity}`} ед.</small></p>

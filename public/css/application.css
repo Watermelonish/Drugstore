@@ -1,46 +1,67 @@
-@media (max-width: 767px) {
-
-  div.card > div > div > img {
-    max-width: 160px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto
-  }
-
-  
-
-  /* .drugs-cards {
-    display: flex;
-    flex-direction: row;
-  } */
-
-  /* #div1 {
-      display: flex;
-      flex-direction: column;
-      height: 350px;
-  }
-
-  #novoe {
-      margin-left: -130px;
-  }
-  #div4 {
-      margin-left: -130px;
-  }
-
-  #divimg1 {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  }
-
-  #divimg2 {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  } */
+.lglglg {
+  max-width: 90%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
 }
 
-.lglglg {
+.textiki {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%)
+}
+
+div.card>div>div>div>div>button {
+  width: 200px;
+}
+
+div.card>div>div>div>img {
+  max-width: 200px;
+}
+
+div.collapseLogin > p > button {
+  width:200px;
+}
+div.collapseLogin > div > p > button {
+  width:200px;
+}
+.collapsePassword > div > p > button {
+  width:200px;
+}
+/* .deleteModal {
   display: flex;
-  
+  position: relative;
+  justify-content:center;
+} */
+button.btn-danger {
+  width:200px;
+}
+
+@media (max-width: 767px) {
+  .textiki {
+    margin-left: -28%;
+    /* font-size: 10px; */
+  }
+  div.collapseLogin > p > button {
+    width:150px;
+  }
+  div.collapseLogin > div > p > button {
+    width:150px;
+  }
+  .collapsePassword > div > p > button {
+    width:150px;
+  }  
+
+  .changeLoginBtn > input {
+    width: 130px; 
+  }
+  .changeMailBtn > input {
+    width: 130px;
+  }
+  .changePasswordBtn > input {
+    width: 130px;
+  }
 }
