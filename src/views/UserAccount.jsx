@@ -1,7 +1,8 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function Main({ theUser, newUser }) {
+module.exports = function Main({ theUser, newUser, transactions }) {
+  console.log(transactions)
   return (
     <Layout newUser = {newUser}>
       <script defer src="/js/userAccount.js" />
@@ -119,6 +120,23 @@ module.exports = function Main({ theUser, newUser }) {
   </div>
 </div>
 </div>
+<h2>История заказов</h2>
+      <div className="transactionsContainer">
+         {transactions.length == 0? (
+          <p>Здесь пока пусто. Вы ещё ничего не заказали. <a defer href = "/main">к покупкам</a></p>
+         ):(
+          transactions.map((drug) => 
+
+  <div className="card w-75" key={`${drug.id}`} id = {`${drug.id}`}>
+    <div className="card-body">
+      <h5 className="card-title">{`${drug['Drug.name']}`}</h5>
+      <p className="card-text">{`${drug['Drug.discountPrice'] }руб.`}</p>
+    </div>
+  </div>
+
+      
+      ))}
+      </div>
 </div>
     </Layout>
   );

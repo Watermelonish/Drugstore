@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 
 const Login = require("../views/Login");
 const UserAccount = require("../views/UserAccount")
-const { User } = require("../../db/models/");
+const { User, Drug, Story } = require("../../db/models/");
 
 
 // авторизация пользователя
@@ -30,7 +30,9 @@ router.get("/login", (req, res) => {
  }catch(error){
    const message = "Пользователь не найден"
    const source = '/login'
-   res.send(`Error ------> ${error}`);
+   const note = "Такой пользователь не найден"
+
+   renderTemplate(Login, {note}, res);
    }
 })
 
@@ -63,7 +65,8 @@ router.post("/user", async (req, res) => {
   console.log(newUser)
   try{
     const theUser = await User.findOne({where:{mail:newUser}, raw: true})
-    renderTemplate(UserAccount, {theUser, newUser}, res);
+    const transactions = await Story.findAll({where:{user_id:theUser.id}, raw:true, include: Drug})
+    renderTemplate(UserAccount, {theUser, newUser, transactions}, res);
 
   } catch(err){
     console.log(err)

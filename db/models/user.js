@@ -16,7 +16,13 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'user_id',
         otherKey: 'item_id'
       })
+      this.belongsToMany(models.Story, {
+        through: models.userDrug,
+        foreignKey: 'user_id',
+        otherKey: 'item_id'
+      })
     }
+  
   }
   User.init({
     mail: DataTypes.STRING,
