@@ -1,0 +1,46 @@
+@media (max-width: 767px) {
+
+  div.card > div > div > img {
+    max-width: 160px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+  }
+
+  
+
+  /* .drugs-cards {
+    display: flex;
+    flex-direction: row;
+  } */
+
+  /* #div1 {
+      display: flex;
+      flex-direction: column;
+      height: 350px;
+  }
+
+  #novoe {
+      margin-left: -130px;
+  }
+  #div4 {
+      margin-left: -130px;
+  }
+
+  #divimg1 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  #divimg2 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  } */
+}
+
+.lglglg {
+  display: flex;
+  
+}
