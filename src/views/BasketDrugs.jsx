@@ -2,10 +2,10 @@ const React = require('react');
 
 const Layout = require('./Layout');
 
-module.exports = function Login({theUser}) {
+module.exports = function Login({theUser, newUser}) {
    // console.log(basketDrugs)
   return (
-       <Layout>
+       <Layout newUser = {newUser}>
        
           
       <h2>Корзина</h2>
