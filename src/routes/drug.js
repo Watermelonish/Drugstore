@@ -5,21 +5,42 @@ const bcrypt = require('bcrypt');
 const BasketDrugs = require('../views/BasketDrugs')
 const Main = require('../views/Main');
 const UserAccount = require('../views/UserAccount');
-const { render } = require('react-dom');
  
 
 router.get('/main', async (req, res) => {
    const newUser = req.session?.newUser;
-
+   const {sort} = req.query
+   
    try{
-   const drugs = await Drug.findAll({raw:true})
-   console.log(drugs)
-   renderTemplate(Main, {drugs, newUser}, res)
+   let drugs = await Drug.findAll({raw:true})
+
+   let drugsWeek = await Drug.findAll({raw:true, where:{free:true}})
+   console.log(drugsWeek)
+   if (sort){
+   drugs = await Drug.findAll({raw:true, order:[['discountPrice', 'ASC']]})
+      
+   }
+   renderTemplate(Main, {drugs, newUser, drugsWeek}, res)
    }
    catch(err){
       console.log(err)
    }
-   })
+   }).post('/main', async (req, res) => {
+      const newUser = req.session?.newUser;
+      const {sort} = req.body
+
+      try{
+         // if (sort){
+      let drugs = await Drug.findAll({raw:true, order:[['discountPrice', 'ASC']]})
+         console.log(drugs)
+      res.redirect('/main?sort=true')
+      // renderTemplate(Main, {drugs, newUser}, res)
+      }
+      catch(err){
+         console.log(err)
+      }
+   }
+   )
 
 router.post('/drug', async (req, res) => {
    try {

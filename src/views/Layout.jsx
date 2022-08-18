@@ -13,6 +13,7 @@ module.exports = function Layout({ children, newUser }) {
           crossOrigin="anonymous"
         />
         <link defer rel="stylesheet" href="/css/application.css" />
+        <script defer src="/js/mainShop.js" />
 
 
         <title>pharmacy</title>
