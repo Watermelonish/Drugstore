@@ -16,6 +16,13 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'item_id',
         otherKey: 'user_id'
       })
+      this.belongsToMany(models.User, {
+        through: models.Story,
+        foreignKey: 'item_id',
+        otherKey: 'user_id'
+      })
+      this.hasMany(models.Story, {foreignKey:"item_id"})
+
     }
   }
   Drug.init({

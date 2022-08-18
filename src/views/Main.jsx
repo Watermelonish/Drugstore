@@ -50,8 +50,8 @@ module.exports = function Main({ drugs, newUser }) {
   
 <div className = "drugs-cards ">
    {drugs.map((drug) => 
-      <div className="card mb-2" style={{maxWidth: 800, minWidth: 400}} key={`${drug.id}`}>
-  <div className="row g-10 ">
+      <div className="card mb-2" style={{maxWidth: 700, minWidth: 400}} key={`${drug.id}`}>
+  <div className="row g-12 ">
     <div className="col-md-2">
       <img src={`/img/${drug.image}`} style = {{maxHeight: 200}} className="img-fluid rounded-start" alt="{`${drug.name}`}" /><img/>
     </div>
@@ -64,7 +64,7 @@ module.exports = function Main({ drugs, newUser }) {
             <p className="card-text"><small className="text-muted">Осталось {`${drug.quantity}`} ед.</small></p>
 
         </div>
-        <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+        <div className="d-grid gap-2 d-md-flex ">
                <button type="button" class="btn btn-success" data-id = {`${drug.id}`}>купить</button>
          </div>
       </div>
