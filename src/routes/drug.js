@@ -9,11 +9,12 @@ const { render } = require('react-dom');
  
 
 router.get('/main', async (req, res) => {
+   const newUser = req.session?.newUser;
 
    try{
    const drugs = await Drug.findAll({raw:true})
    console.log(drugs)
-   renderTemplate(Main, {drugs}, res)
+   renderTemplate(Main, {drugs, newUser}, res)
    }
    catch(err){
       console.log(err)
@@ -47,11 +48,12 @@ router.post('/drug', async (req, res) => {
 }).get('/drug', async (req, res) => {
    try {
       if (req.session.newUser){
-         console.log(req.session.newUser)
+         const newUser = req.session?.newUser;
+
          const theUser = await User.findAll({where: {mail: req.session.newUser}, include: Drug, raw:true})
 
          
-         renderTemplate(BasketDrugs, {theUser}, res)
+         renderTemplate(BasketDrugs, {theUser, newUser}, res)
 
       }else{
          

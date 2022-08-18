@@ -1,10 +1,11 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function Main({ drugs }) {
-  drugs.map((drug) => console.log(drug.dicountPrice, 'AAAAAAAAAAAAAA'))
+
+module.exports = function Main({ drugs, newUser }) {
+
   return (
-    <Layout>
+    <Layout newUser = {newUser}>
       <script defer src="/js/mainShop.js" />
 
       <div className="main d-flex flex-column justify-content-start">
