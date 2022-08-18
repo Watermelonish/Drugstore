@@ -28,6 +28,12 @@ router.post('/drug', async (req, res) => {
          const theUser = await User.findOne({where:{mail:userMail}, raw:true})
          const theDrug = await Drug.findOne({where:{id}, raw:true})
          const newUserDrug = await userDrug.create({user_id: theUser.id, item_id:theDrug.id})
+         // const newQuantity = theDrug.quantity -1
+         // await theDrug.update({quantity:newQuantity}, { strict: true })
+         // console.log(theDrug)
+         // console.log(newQuantity)
+         
+         
          const successMess = "Товар добавлен в корзину"
          res.json({successMess})
       }else{

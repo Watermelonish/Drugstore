@@ -12,7 +12,7 @@ module.exports = function Login({theUser}) {
       <div className="basketContainer">
          {theUser.map((drug) => 
 
-  <div className="card w-75" key="drug.id">
+  <div className="card w-75" key={`${drug.id}`} id = {`${drug.id}`}>
     <div className="card-body">
       <h5 className="card-title">{`${drug['Drugs.name']}`}</h5>
       <p className="card-text">{`${drug['Drugs.discountPrice'] }руб.`}</p>
