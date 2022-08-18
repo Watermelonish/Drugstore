@@ -1,12 +1,13 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function Main({ theUser }) {
+module.exports = function Main({ theUser, newUser }) {
   return (
-    <Layout>
+    <Layout newUser = {newUser}>
       <script defer src="/js/userAccount.js" />
       <div className = "main justify-content-start userMain">
-<h1>Личная информация</h1>
+      <h1>Личный кабинет</h1>
+
 <div className = "wrongPasswordMessage"></div>
 <div className="container text-right">
   <div className="row justify-content-start">

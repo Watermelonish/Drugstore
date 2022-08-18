@@ -14,44 +14,58 @@ module.exports = function Layout({ children, newUser }) {
         />
         <link defer rel="stylesheet" href="/css/application.css" />
 
-        {/* <script defer src="/js/application.js" /> */}
 
         <title>pharmacy</title>
       </head>
 
       <body>
         
-         <></>
-        {/* <header role="banner" className="mar-t-5 pad-t-2 pad-b-4 pad-s-1 wrap-float bg-white">
-          <div className="max-w-700 center wrap-float">
-            <nav className="clearfix mar-b-1">
-              {newUser? (<div><a href = '/logout'> 
-                Log out
-              </a>
-              </div>
-              ):
-              (<div><a defer href = '/login' >Log In        </a>
-                
-                            
-                <a defer href = '/registration'>       Sign Up</a> 
-                </div>)
-                }
-                
-                
-      
-            
-              <ul className="no-bullets no-margin no-padding right">
+     
+        <header role="banner" >
+            <nav className="navbar navbar-expand-lg bg-light">
+            <div className="container-fluid">
+                <a className="navbar-brand" href="#">
+                  <img defer src="/img/logo.jpg" alt="logo" width="30" height="24"></img>
+                </a>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse " id="navbarNavDropdown">
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
-                <li className="pipe-separate t-light-green left"><a href="/">home</a></li>
+                
+              {newUser? (
+                <li className="nav-item">
+              <a defer href = '/user' className ="navbar-brand active">
+                Личный кабинет        </a>
+                </li>
+              
+              ):
+              (<div><a defer href = '/login' className ="navbar-brand">
+                Вход/Регистрация        </a></div>)
+                }
+                <li className="nav-item">
+                <a className="navbar-brand active" aria-current="page" href="/main">Главная</a>
+                </li>
+                <li className="nav-item">
+                <a className="navbar-brand active" aria-current="page" href="/drug">Корзина</a>
+                </li>
+              {newUser?(
+                <li className="nav-item" >
+
+              <a className ="navbar-brand" href = '/logout'> 
+                Выйти
+              </a>
+              </li>
+              ):(null)}
               </ul>
+              </div>
+            </div>
             </nav>
 
-            <div className="logo-container">
-              <img className="logo center block" src="/images/logo.png" alt="logo" />
-              <h1>Broccoli Blog</h1>
-            </div>
-          </div>
-        </header> */}
+
+            
+        </header>
 
             {children}
             <script

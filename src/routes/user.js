@@ -63,7 +63,7 @@ router.post("/user", async (req, res) => {
   console.log(newUser)
   try{
     const theUser = await User.findOne({where:{mail:newUser}, raw: true})
-    renderTemplate(UserAccount, {theUser}, res);
+    renderTemplate(UserAccount, {theUser, newUser}, res);
 
   } catch(err){
     console.log(err)
