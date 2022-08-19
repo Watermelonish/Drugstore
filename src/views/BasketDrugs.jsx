@@ -21,7 +21,7 @@ module.exports = function Login({theUser, newUser}) {
       <h2>Корзина</h2>
       <div className="basketContainer">
          {theUser[0]['Drugs.name'] === null? (
-          <p>Здесь пока пусто. <a defer href = "/main">к покупкам</a></p>
+          <p>Здесь пока пусто.</p>
          ):(
           theUser.map((drug) => 
           <div className="basketCont">
