@@ -2,7 +2,7 @@ const renderTemplate = require('../../lib/renderTemplate');
 const {Drug, User, userDrug, Story} = require('../../db/models')
 const router = require('express').Router();
 const BasketDrugs = require('./../../src/views/BasketDrugs')
- 
+
 
 router.post('/order', async (req, res) => {
    try {
@@ -18,7 +18,10 @@ router.post('/order', async (req, res) => {
          await userDrug.destroy({where:{user_id:theUser.id}})
 
          const successMess = "Товар добавлен в корзину"
-         res.json({success})
+         
+         
+         res.json(successMess)
+         
       }else{
          const goRegisterMessage = 'добавлять товары в корзину могут только зарегестрированные пользователи'
          res.json({goRegisterMessage})
