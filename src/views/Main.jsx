@@ -81,27 +81,30 @@ module.exports = function Main({ drugs, newUser, drugsWeek }) {
   
 <div className = "drugs-cards ">
    {drugs.map((drug) => 
-      <div className="card mb-2" style={{maxWidth: 700, minWidth: 400}} key={`${drug.id}`} data-quantity = {`${drug.quantity}`} data-price = {`${drug.discountPrice}`}>
-  <div className="row g-12 ">
+      <div className="card mb-2" style={{maxWidth: 800, minWidth: 400}} key={`${drug.id}`} data-quantity = {`${drug.quantity}`} data-price = {`${drug.discountPrice}`}>
+  <div className="row g-10 ">
+    <div className="lglglg">
     <div className="col-md-2">
       <img src={`/img/${drug.image}`} style = {{maxHeight: 200}} className="img-fluid rounded-start" alt="{`${drug.name}`}" /><img/>
     </div>
     <div className="col-md-4">
       
-      <div className="card-body ">
-         <div>
+        <div className="textiki">
+       
             <h5 className="card-title">{`${drug.name}`}</h5>
             <p className="card-text"><s>{`${drug.price}`}</s>           <b>{`${drug.discountPrice}`} руб.</b></p>
             <p className="card-text"><small className="text-muted">Осталось {`${drug.quantity}`} ед.</small></p>
-
-        </div>
+            </div>
+            </div>
+            </div>
+            <div className="col-md-4">
+            <div className="card-body ">
         <div className="d-grid gap-2 d-md-flex ">
-               <button type="button" class="btn btn-success" data-id = {`${drug.id}`}>купить</button>
+               <button type="button" class="btn btn-success" data-name = {`${drug.name}`} data-id = {`${drug.id}`}>купить</button>
         </div>
-      </div>
+        </div>
       
     </div>
-    
   </div>
   
 </div>
@@ -109,6 +112,17 @@ module.exports = function Main({ drugs, newUser, drugsWeek }) {
    )
    
    }
+</div>
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto productToBuy"></strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Товар был добавлен в корзину
+    </div>
+  </div>
 </div>
 </div>
 
