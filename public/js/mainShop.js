@@ -72,8 +72,8 @@ priceChecked.addEventListener('click', async (event) =>{
          </div>`
          }
        }
-      }
-   if (event.target.unchecked){
+      }else{
+
         
    window.location.assign('/main')
 

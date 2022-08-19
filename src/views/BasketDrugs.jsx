@@ -12,19 +12,19 @@ module.exports = function Login({theUser, newUser}) {
   return (
        <Layout newUser = {newUser}>
                 
-        <script defer src="/js/basketDelete.js" />
+
 
         <script defer src="/js/orderBtn.js" />
 
 
           
       <h2>Корзина</h2>
-      <div className="basketContr">
+      <div className="basketContainer">
          {theUser[0]['Drugs.name'] === null? (
-          <p>Здесь пока пусто. <a defer href = "/main">к покупкам</a></p>
+          <p>Здесь пока пусто.</p>
          ):(
           theUser.map((drug) => 
-          <div className="basketContainer">
+          <div className="basketCont">
   <div className="card w-75" key={`${drug.id}`} id = {`${drug.id}`}>
     <div className="card-body">
       <h5 className="card-title">{`${drug['Drugs.name']}`}</h5>

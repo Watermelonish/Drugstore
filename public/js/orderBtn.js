@@ -40,14 +40,15 @@ basketContainer.addEventListener('click',async (event) => {
       idToDelete
      }),
    });
-  let drugs = basketContainer.children
-  console.log(drugs[0].getAttribute('id'))
-  for (let i = 0; i < drugs.length; i++){
-    if (drugs[i].getAttribute('id') == idToDelete){
-      drugs[i].remove()
-      break;
-    }
-  }
+   window.location.assign('/drug')
+  // let drugs = basketContainer.children
+  // console.log(drugs[0].getAttribute('id'))
+  // for (let i = 0; i < drugs.length; i++){
+  //   if (drugs[i].getAttribute('id') == idToDelete){
+  //     drugs[i].remove()
+  //     break;
+  //   }
+  // }
 })
 
 

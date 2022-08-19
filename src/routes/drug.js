@@ -119,16 +119,7 @@ router.post('/drug', async (req, res) => {
      res.send(`Error ------> ${error}`);
    }
   
-   // const newUser = req.session?.newUser;
-   // const {id} = req.body
-   // const theUser = await User.findAll({where: {mail: req.session.newUser}, include: Drug, raw:true})
-   // const UserDrugToDelete = await userDrug.findOne({item_id:id})
-   // if (UserDrugToDelete){
-   //    await UserDrugToDelete.destroy()
-   //    message = {destroyed:true}
-   //    res.json(message)
-   // }
-   
+
    
 })
   

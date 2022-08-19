@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 
 const Login = require("../views/Login");
 const UserAccount = require("../views/UserAccount")
-const { User, Drug, Story } = require("../../db/models/");
+const { User, Drug, Story, userDrug } = require("../../db/models/");
 
 
 // авторизация пользователя
@@ -46,7 +46,8 @@ router.post("/user", async (req, res) => {
     let searched = await User.findOne({where: {mail}, raw: true});
     console.log(searched)
     if (searched) {
-      return res.send('Пользователь уже зарегистрирован');
+      const note = "Такой пользователь уже зарегестрирован."
+      return renderTemplate(Login, {note}, res);
           } else {
             const newUser = await User.create({ mail, login, password: hash });
             req.session.newUser = newUser.mail;
@@ -74,9 +75,16 @@ router.post("/user", async (req, res) => {
 }).delete("/user", async (req, res) => {
   const newUser = req.session?.newUser;
   try{
-    const theUser = await User.destroy({where:{mail:newUser}})
+    const theUser = await User.findOne({where:{mail:newUser}})
+    const theStories = await Story.destroy({where:{user_id:theUser.id}})
+    const theuserDrugs = await userDrug.destroy({where:{user_id:theUser.id}})
+
+    const thetheUser = await User.destroy({where:{mail:newUser}})
     
-    res.json({delete:'200'})
+    req.session.destroy(() => {
+      res.clearCookie("newUser");
+      res.redirect("/main");
+    });
   } catch(err){
     console.log(err)
   }
