@@ -17,7 +17,8 @@ module.exports = function Login({note}) {
           <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
           <input name="password" type="password" className="form-control" id="exampleInputPassword1" />
         </div>
-        <p>{`${note}`}</p>
+        
+        <p>{note?(`${note}`):null}</p>
         <button type="submit" className="btn btn-primary">Вход</button>
         </form>
            <h2>Регистрация</h2>

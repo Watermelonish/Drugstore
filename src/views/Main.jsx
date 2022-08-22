@@ -1,12 +1,11 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function Main({ drugs, newUser, drugsWeek }) {
+module.exports = function Main({ drugs, newUser, drugsWeek, thetheUser }) {
   const drugsWeek1 = [drugsWeek[0], drugsWeek[1], drugsWeek[2]]
   const drugsWeek2 = [drugsWeek[3], drugsWeek[4], drugsWeek[5]]
-  console.log(drugsWeek, 'aaADAAAAAAAAAAA')
   return (
-    <Layout newUser = {newUser}>
+    <Layout newUser = {newUser} theUser={thetheUser}>
 
       <div className = "main d-flex flex-column justify-content-start">
 <div>

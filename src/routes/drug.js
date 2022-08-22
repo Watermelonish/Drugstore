@@ -13,50 +13,24 @@ router.get('/main', async (req, res) => {
    
    try{
    let drugs = await Drug.findAll({raw:true})
-
+   
    let drugsWeek = await Drug.findAll({raw:true, where:{free:true}})
-   console.log(drugsWeek)
-   if (sort){
-   drugs = await Drug.findAll({raw:true, order:[['discountPrice', 'ASC']]})
-      
-   }
+   if (newUser){
+   const thetheUser = await User.findAll({where: {mail: newUser}, include: Drug, raw:true})
+   renderTemplate(Main, {drugs, newUser,thetheUser, drugsWeek}, res)
+   }else{
    renderTemplate(Main, {drugs, newUser, drugsWeek}, res)
    }
-   catch(err){
+}catch(err){
       console.log(err)
    }
-   }).post('/main', async (req, res) => {
-      const newUser = req.session?.newUser;
-      const {sort} = req.body
-
-      try{
-         // if (sort){
-      let drugs = await Drug.findAll({raw:true, order:[['discountPrice', 'ASC']]})
-         console.log(drugs)
-      res.redirect('/main?sort=true')
-      // renderTemplate(Main, {drugs, newUser}, res)
-      }
-      catch(err){
-         console.log(err)
-      }
-   }
-   )
+   })
 
 router.get('/sortedMain',async (req,res)=>{
 const newUser = req.session?.newUser;
-
-
 try{
    let drugs = await Drug.findAll({raw:true, order:[['discountPrice', 'ASC']]})
-
-let drugsWeek = await Drug.findAll({raw:true, where:{free:true}})
-console.log(drugsWeek)
-
-drugs = await Drug.findAll({raw:true, order:[['discountPrice', 'ASC']]})
-   
-
-// renderTemplate(Main, {drugs, newUser, drugsWeek}, res)
-res.json(drugs)
+   res.json(drugs)
 }
 catch(err){
    console.log(err)

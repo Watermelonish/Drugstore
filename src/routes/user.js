@@ -18,6 +18,7 @@ router.get("/login", (req, res) => {
   try{
     const user = await User.findOne({where:{ mail }});
     const passCheck = await bcrypt.compare(password, user.password);
+    
    if (passCheck){
      req.session.newUser = user.mail;
      req.session.save(() => {
@@ -63,11 +64,13 @@ router.post("/user", async (req, res) => {
   }
 }).get("/user", async (req, res) => {
   const newUser = req.session?.newUser;
-  console.log(newUser)
   try{
     const theUser = await User.findOne({where:{mail:newUser}, raw: true})
+
     const transactions = await Story.findAll({where:{user_id:theUser.id}, raw:true, include: Drug})
-    renderTemplate(UserAccount, {theUser, newUser, transactions}, res);
+    const thetheUser = await User.findAll({where: {mail: newUser}, include: Drug, raw:true})
+
+    renderTemplate(UserAccount, {theUser, newUser,thetheUser, transactions}, res);
 
   } catch(err){
     console.log(err)
